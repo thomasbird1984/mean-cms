@@ -1,0 +1,15 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div class="col-sm-6 form-group">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" class="form-control" [(ngModel)]="user.name" />
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email" class="form-control" [(ngModel)]="user.email" />
+  </div>
+
+  <div class="col-sm-12">
+    <button type="submit" class="btn btn-primary">Add user</button>
+  </div>
+</form>
