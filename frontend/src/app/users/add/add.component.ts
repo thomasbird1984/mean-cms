@@ -16,7 +16,10 @@ export class AddComponent implements OnInit {
     email: null
   };
 
-  constructor(private http: Http, private router: Router) {}
+  constructor(
+    private http: Http,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 

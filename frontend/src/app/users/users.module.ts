@@ -20,6 +20,10 @@ const routes: Routes = [
             {
                 path: 'add',
                 component: AddComponent
+            },
+            {
+                path: ':id',
+                component: SingleComponent
             }
         ]
     }

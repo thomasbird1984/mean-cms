@@ -3,12 +3,16 @@
     <tr>
       <th>Name:</th>
       <th>Email:</th>
+      <th>Actions:</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let user of users">
       <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>
+      <td>
+        <a routerLink="/users/{{ user._id }}">View</a>
+      </td>
     </tr>
   </tbody>
 </table>
