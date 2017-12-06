@@ -1,7 +1,8 @@
 import { Http, HttpModule, Response } from '@angular/http';
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
+import { NgForm } from '@angular/forms';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -16,6 +17,7 @@ export class SingleComponent implements OnInit {
   constructor(
     private http: Http,
     private route: ActivatedRoute,
+    private router: Router,
     private location: Location
   ) {}
 
@@ -31,6 +33,19 @@ export class SingleComponent implements OnInit {
       .subscribe(user => {
         console.log(user);
         this.user = user;
+      });
+  }
+
+  onSubmit(f: NgForm) {
+    console.log(f, this.user);
+
+    this.http.put(this.apiUrl + '/users/'+ this.user._id, this.user, {})
+      .map((res: Response) => res.json())
+      .subscribe(user => {
+        console.log('Edit: ', user);
+        this.user = user;
+        window.location.reload();
+        // this.router.navigate(['/users/'+ user._id]);
       });
   }
 }

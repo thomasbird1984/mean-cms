@@ -1,15 +1,19 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name:</th>
+      <th>First name:</th>
+      <th>Last name:</th>
       <th>Email:</th>
+      <th>Phone:</th>
       <th>Actions:</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let user of users">
-      <td>{{ user.name }}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
       <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
       <td>
         <a routerLink="/users/{{ user._id }}">View</a>
       </td>

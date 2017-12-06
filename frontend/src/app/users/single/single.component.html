@@ -1,4 +1,48 @@
-<ul class="list-group">
-  <li class="list-group-item">Name: <span class="pull-right">{{ user.name }}</span></li>
-  <li class="list-group-item">Email: <span class="pull-right">{{ user.email }}</span></li>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">View</a></li>
+  <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit</a></li>
 </ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="view">
+
+    <ul class="list-group">
+      <li class="list-group-item">First name: <span class="pull-right">{{ user.firstName }}</span></li>
+      <li class="list-group-item">Last name: <span class="pull-right">{{ user.lastName }}</span></li>
+      <li class="list-group-item">Email: <span class="pull-right">{{ user.email }}</span></li>
+      <li class="list-group-item">Phone: <span class="pull-right">{{ user.phone }}</span></li>
+    </ul>
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="edit">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+      <div class="col-sm-6 form-group">
+        <label for="firstName">First name:</label>
+        <input type="text" name="firstName" id="firstName" class="form-control" [(ngModel)]="user.firstName" />
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="lastName">Last name:</label>
+        <input type="text" name="lastName" id="lastName" class="form-control" [(ngModel)]="user.lastName" />
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" class="form-control" [(ngModel)]="user.email" />
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" id="phone" class="form-control" [(ngModel)]="user.phone" />
+      </div>
+
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-primary">Add user</button>
+      </div>
+
+    </form>
+  </div>
+</div>
